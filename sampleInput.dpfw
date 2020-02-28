@@ -1,0 +1,756 @@
+<MetaModelStack>
+       <predSpec>
+            <DpfPredicateList>
+               <DpfPredicate>
+               <ID>1</ID>
+               <name>Surjective</name>
+               <displayName><![CDATA[[SURJ]]]></displayName>
+               <parameterText><![CDATA[]]></parameterText>
+               <outputName><![CDATA[[SURJ]]]></outputName>
+               <predScript><![CDATA[//@begin auto-generated code
+ function _Pred1(){
+	 this.X	 = [];
+	 this.Y	 = [];
+	 this.f	 = [];
+}
+//@end auto-generated code]]></predScript>
+               <validateScript><![CDATA[
+_Pred1.prototype.validate = function(){
+var i, j, foundFlag;
+var errObj= [];
+for(i=0; i< this.Y.length; ++i){
+    foundFlag=false;
+for(j=0; j< this.f.length; ++j){
+ if(this.f[j].toNode == this.Y[i]){
+    foundFlag= true;
+        break;   
+}
+    }
+    
+  if(foundFlag == false)
+   errObj.push(this.Y[i]);
+  }
+return errObj; // return all the elements that violated the constraint...     
+};]]></validateScript>
+               <predicate_nodes>
+                  <DpfNode>
+                     <ID>8</ID>
+                     <name>X</name>
+                     <deepCp>0</deepCp>
+                     <d_x>48.34375</d_x>
+                     <d_y>147.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>9</ID>
+                     <name>Y</name>
+                     <deepCp>0</deepCp>
+                     <d_x>268.34375</d_x>
+                     <d_y>143.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+               </predicate_nodes>
+               <predicate_connections>
+                  <DpfConnection>
+                     <ID>10</ID>
+                     <name>f</name>
+                     <fromNode>8</fromNode>
+                     <toNode>9</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>80,167.8359375,267.34375,163.8359375</line>
+                     </d_lines>
+                     <d_text>169.015625,157.8359375</d_text>
+                  </DpfConnection>
+               </predicate_connections>
+               <predicate_text_pos>198.703125,152.34375</predicate_text_pos>
+               <predicate_lines>
+                  <line>173.671875,165.8359375,197.703125,152.34375,10,0</line>
+               </predicate_lines>
+               <completionRules>
+               </completionRules>
+               <productionRules>
+               </productionRules>
+               </DpfPredicate>
+               <DpfPredicate>
+               <ID>2</ID>
+               <name>Multiplicity</name>
+               <displayName><![CDATA[[{n}.....{m}]]]></displayName>
+               <parameterText><![CDATA[n:0;m:1]]></parameterText>
+               <outputName><![CDATA[[0.....1]]]></outputName>
+               <predScript><![CDATA[//@begin auto-generated code
+ function _Pred2(){
+	 this.X	 = [];
+	 this.Y	 = [];
+	 this.f	 = [];
+}
+//@end auto-generated code]]></predScript>
+               <validateScript><![CDATA[
+_Pred2.prototype.validate = function(){
+ var errObj=[];
+ 
+var i, j, countF, m, n;
+ 
+for(i=0; i< this.X.length; ++i){
+    
+ n= parseInt(this.X[i].param.get('n'));
+    
+ m=this.X[i].param.get('m');
+     
+countF=0;
+ for(j=0; j<this.f.length; ++j){
+    
+ if(this.f[j].fromNode == this.X[i]){
+         
+countF++;
+     
+}
+ }
+  
+  if(countF < n){
+      
+  errObj.push(this.X[i]);
+        continue;
+   
+ }
+  
+  else{
+       
+ if(m != '*'){
+       
+    m= parseInt(m);
+           
+ if(countF > m)
+           
+    errObj.push(this.X[i]);
+       
+      }
+    }
+ }
+ return errObj; // return all the elements that violated the constraint...    
+};]]></validateScript>
+               <predicate_nodes>
+                  <DpfNode>
+                     <ID>10</ID>
+                     <name>X</name>
+                     <deepCp>0</deepCp>
+                     <d_x>50.34375</d_x>
+                     <d_y>141.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>11</ID>
+                     <name>Y</name>
+                     <deepCp>0</deepCp>
+                     <d_x>270.34375</d_x>
+                     <d_y>141.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+               </predicate_nodes>
+               <predicate_connections>
+                  <DpfConnection>
+                     <ID>11</ID>
+                     <name>f</name>
+                     <fromNode>10</fromNode>
+                     <toNode>11</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>80.6875,161.84375,269.34375,161.8359375</line>
+                     </d_lines>
+                     <d_text>171.015625,153.8359375</d_text>
+                  </DpfConnection>
+               </predicate_connections>
+               <predicate_text_pos>191.828125,144.34375</predicate_text_pos>
+               <predicate_lines>
+                  <line>175.015625,161.83984375,190.828125,144.34375,11,0</line>
+               </predicate_lines>
+               <completionRules>
+               </completionRules>
+               <productionRules>
+               </productionRules>
+               </DpfPredicate>
+               <DpfPredicate>
+               <ID>3</ID>
+               <name>Inverse</name>
+               <displayName><![CDATA[[INV]]]></displayName>
+               <parameterText><![CDATA[]]></parameterText>
+               <outputName><![CDATA[[INV]]]></outputName>
+               <predScript><![CDATA[//@begin auto-generated code
+ function _Pred3(){
+	 this.X	 = [];
+	 this.Y	 = [];
+	 this.f	 = [];
+	 this.g	 = [];
+}
+//@end auto-generated code]]></predScript>
+               <validateScript><![CDATA[
+_Pred3.prototype.validate = function(){
+ var errObj = [];
+ 
+var i, j, foundFlag;
+ 
+for(i=0; i< this.f.length; ++i){
+     
+foundFlag= false;
+ 
+for(j=0; j< this.g.length; ++j){
+     
+if(this.f[i].fromNode == this.g[j].toNode &&
+     
+this.f[i].toNode == this.g[j].fromNode){
+         
+foundFlag = true;
+         break;
+    
+    }
+ }
+ 
+if(foundFlag == false)
+     
+errObj.push(this.f[i]);
+   
+ }
+ 
+for(i=0; i< this.g.length; ++i){
+    
+ foundFlag= false;
+ 
+for(j=0; j< this.f.length; ++j){
+    
+ if(this.g[i].fromNode == this.f[j].toNode &&
+     
+this.g[i].toNode == this.f[j].fromNode){
+         
+foundFlag = true;
+         break;
+    
+   }
+ }
+
+ if(foundFlag == false)
+    errObj.push(this.g[i]);
+}
+return errObj; // return all the elements that violated the constraint...  
+};]]></validateScript>
+               <predicate_nodes>
+                  <DpfNode>
+                     <ID>12</ID>
+                     <name>X</name>
+                     <deepCp>0</deepCp>
+                     <d_x>-1.65625</d_x>
+                     <d_y>147.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>13</ID>
+                     <name>Y</name>
+                     <deepCp>0</deepCp>
+                     <d_x>220.34375</d_x>
+                     <d_y>151.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+               </predicate_nodes>
+               <predicate_connections>
+                  <DpfConnection>
+                     <ID>12</ID>
+                     <name>f</name>
+                     <fromNode>12</fromNode>
+                     <toNode>13</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>30,146.671875,219.34375,150.671875</line>
+                     </d_lines>
+                     <d_text>92.015625,137.8359375</d_text>
+                  </DpfConnection>
+                  <DpfConnection>
+                     <ID>13</ID>
+                     <name>g</name>
+                     <fromNode>13</fromNode>
+                     <toNode>12</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>219.34375,193,30,189</line>
+                     </d_lines>
+                     <d_text>96,197.8359375</d_text>
+                  </DpfConnection>
+               </predicate_connections>
+               <predicate_text_pos>147.15625,168.34375</predicate_text_pos>
+               <predicate_lines>
+                  <line>124.671875,191,146.15625,168.34375,13,0</line>
+                  <line>124.671875,148.671875,146.15625,168.34375,12,0</line>
+               </predicate_lines>
+               <completionRules>
+               </completionRules>
+               <productionRules>
+               </productionRules>
+               </DpfPredicate>
+               <DpfPredicate>
+               <ID>4</ID>
+               <name>Composite</name>
+               <displayName><![CDATA[[COMP]]]></displayName>
+               <parameterText><![CDATA[]]></parameterText>
+               <outputName><![CDATA[[COMP]]]></outputName>
+               <predScript><![CDATA[//@begin auto-generated code
+ function _Pred4(){
+	 this.X	 = [];
+	 this.Y	 = [];
+	 this.Z	 = [];
+	 this.f	 = [];
+	 this.g	 = [];
+	 this.h	 = [];
+}
+//@end auto-generated code]]></predScript>
+               <validateScript><![CDATA[
+_Pred4.prototype.validate = function(){
+ var errObj=[];
+ 
+var i, j, k, foundFlag;
+ 
+for(i=0; i< this.f.length; ++i){
+     
+for(j=0; j< this.g.length; ++j){
+         
+if(this.f[i].toNode == this.g[j].fromNode){
+             
+foundFlag=false;
+    
+for(k=0; k< this.h.length; ++k){
+        
+if(this.f[i].fromNode == this.h[k].fromNode &&
+        
+this.g[j].toNode == this.h[k].toNode){
+            
+foundFlag = true;
+            break;
+        
+        }
+    }
+    
+if(foundFlag == false){
+errObj.push(this.f[i]);
+errObj.push(this.g[j]); }
+
+         }
+     }
+ }
+return errObj; // return all the elements that violated the constraint...     
+};
+]]></validateScript>
+               <predicate_nodes>
+                  <DpfNode>
+                     <ID>14</ID>
+                     <name>X</name>
+                     <deepCp>0</deepCp>
+                     <d_x>36.34375</d_x>
+                     <d_y>181.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>15</ID>
+                     <name>Y</name>
+                     <deepCp>0</deepCp>
+                     <d_x>36.34375</d_x>
+                     <d_y>33.671875</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>16</ID>
+                     <name>Z</name>
+                     <deepCp>0</deepCp>
+                     <d_x>244.34375</d_x>
+                     <d_y>181.671875</d_y>
+                     <d_width>28.5625</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+               </predicate_nodes>
+               <predicate_connections>
+                  <DpfConnection>
+                     <ID>14</ID>
+                     <name>f</name>
+                     <fromNode>14</fromNode>
+                     <toNode>15</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>51.015625,180.671875,51.671875,75</line>
+                     </d_lines>
+                     <d_text>39.015625,129.8359375</d_text>
+                  </DpfConnection>
+                  <DpfConnection>
+                     <ID>15</ID>
+                     <name>g</name>
+                     <fromNode>15</fromNode>
+                     <toNode>16</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>51.015625,75.015625,258.625,180.671875</line>
+                     </d_lines>
+                     <d_text>156.5,117.8359375</d_text>
+                  </DpfConnection>
+                  <DpfConnection>
+                     <ID>16</ID>
+                     <name>h</name>
+                     <fromNode>14</fromNode>
+                     <toNode>16</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>68,201.8359375,243.34375,201.84375</line>
+                     </d_lines>
+                     <d_text>147,211.8359375</d_text>
+                  </DpfConnection>
+               </predicate_connections>
+               <predicate_text_pos>91.640625,152.34375</predicate_text_pos>
+               <predicate_lines>
+                  <line>51.34375,127.8359375,90.640625,152.34375,14,0</line>
+                  <line>154.8203125,127.84375,135.3125,152.34375,15,0</line>
+                  <line>155.671875,201.83984375,135.3125,152.34375,16,0</line>
+               </predicate_lines>
+               <completionRules>
+               </completionRules>
+               <productionRules>
+               </productionRules>
+               </DpfPredicate>
+               <DpfPredicate>
+               <ID>5</ID>
+               <name>precondition</name>
+               <displayName><![CDATA[[pCond]]]></displayName>
+               <parameterText><![CDATA[]]></parameterText>
+               <outputName><![CDATA[[pCond]]]></outputName>
+               <predScript><![CDATA[//@begin auto-generated code
+ function _Pred5(){
+	 this.X	 = [];
+	 this.Y	 = [];
+	 this.Z	 = [];
+	 this.f	 = [];
+	 this.g	 = [];
+}
+//@end auto-generated code]]></predScript>
+               <validateScript><![CDATA[
+_Pred5.prototype.validate = function(){
+ //Implement the validate function 
+ var errObj = [];
+ 
+var i, j, foundFlag;
+ 
+for(i=0; i< this.f.length; ++i){
+     
+foundFlag= false;
+ 
+for(j=0; j< this.g.length; ++j){
+     
+if(this.f[i].fromNode == this.g[j].fromNode){
+         
+foundFlag = true;
+         break;
+    }
+ }
+ 
+if(foundFlag == false)
+   errObj.push(this.f[i]);
+ }
+ 
+return errObj; // return all the elements that violated the constraint...                                                                                                              
+};]]></validateScript>
+               <predicate_nodes>
+                  <DpfNode>
+                     <ID>17</ID>
+                     <name>X</name>
+                     <deepCp>0</deepCp>
+                     <d_x>25.65625</d_x>
+                     <d_y>85.65625</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>18</ID>
+                     <name>Y</name>
+                     <deepCp>0</deepCp>
+                     <d_x>193.65625</d_x>
+                     <d_y>31.65625</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>19</ID>
+                     <name>Z</name>
+                     <deepCp>0</deepCp>
+                     <d_x>185.4375</d_x>
+                     <d_y>149.65625</d_y>
+                     <d_width>28.5625</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+               </predicate_nodes>
+               <predicate_connections>
+                  <DpfConnection>
+                     <ID>17</ID>
+                     <name>f</name>
+                     <fromNode>17</fromNode>
+                     <toNode>18</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>56,105.828125,208.328125,73</line>
+                     </d_lines>
+                     <d_text>120.578125,70.828125</d_text>
+                  </DpfConnection>
+                  <DpfConnection>
+                     <ID>18</ID>
+                     <name>g</name>
+                     <fromNode>17</fromNode>
+                     <toNode>19</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>56,105.828125,199.71875,148.65625</line>
+                     </d_lines>
+                     <d_text>123.671875,145.7421875</d_text>
+                  </DpfConnection>
+               </predicate_connections>
+               <predicate_text_pos>157.9375,105.3125</predicate_text_pos>
+               <predicate_lines>
+                  <line>132.1640625,89.4140625,156.9375,105.3125,17,0</line>
+                  <line>127.859375,127.2421875,156.9375,105.3125,18,0</line>
+               </predicate_lines>
+               <completionRules>
+               </completionRules>
+               <productionRules>
+               </productionRules>
+               </DpfPredicate>
+               <DpfPredicate>
+               <ID>6</ID>
+               <name>Injective</name>
+               <displayName><![CDATA[[INJ]]]></displayName>
+               <parameterText><![CDATA[]]></parameterText>
+               <outputName><![CDATA[[INJ]]]></outputName>
+               <predScript><![CDATA[//@begin auto-generated code
+ function _Pred6(){
+	 this.X	 = [];
+	 this.Y	 = [];
+	 this.f	 = [];
+}
+//@end auto-generated code]]></predScript>
+               <validateScript><![CDATA[
+_Pred6.prototype.validate = function(){
+ var i, j, k, foundFlag, injFlag;
+var errObj= [];
+for(i=0; i< this.X.length; ++i){
+    foundFlag=false;
+    
+for(j=0; j< this.f.length; ++j){
+ if(this.f[j].toNode == this.X[i]){
+    foundFlag= true;
+    injFlag = false;
+  }
+  if(foundFlag == true){
+      for(k=0; k< this.f.length; ++k){
+        if(j != k && this.f[k].toNode == this.f[j].toNode){
+            foundFlag = false;
+            injFlag = true;
+            break;
+        }
+  }
+  if(injFlag == true) break;
+  }
+  
+}
+    
+  if(foundFlag == false)
+   errObj.push(this.X[i]);
+  }
+return errObj; // return all the elements that violated the constraint...                                                                                                              
+};]]></validateScript>
+               <predicate_nodes>
+                  <DpfNode>
+                     <ID>36</ID>
+                     <name>X</name>
+                     <deepCp>0</deepCp>
+                     <d_x>94.65625</d_x>
+                     <d_y>129.65625</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+                  <DpfNode>
+                     <ID>37</ID>
+                     <name>Y</name>
+                     <deepCp>0</deepCp>
+                     <d_x>248.65625</d_x>
+                     <d_y>136.65625</d_y>
+                     <d_width>29.34375</d_width>
+                     <d_height>40.5625</d_height>
+                  </DpfNode>
+               </predicate_nodes>
+               <predicate_connections>
+                  <DpfConnection>
+                     <ID>39</ID>
+                     <name>f</name>
+                     <fromNode>36</fromNode>
+                     <toNode>37</toNode>
+                     <deepCp>0</deepCp>
+                     <d_lines>
+                        <line>125,149.828125,247.65625,156.828125</line>
+                     </d_lines>
+                     <d_text>182.578125,145.328125</d_text>
+                  </DpfConnection>
+               </predicate_connections>
+               <predicate_text_pos>178.078125,130.25</predicate_text_pos>
+               <predicate_lines>
+                  <line>186.328125,153.328125,190.4140625,137.921875,39,0</line>
+               </predicate_lines>
+               <completionRules>
+               </completionRules>
+               <productionRules>
+               </productionRules>
+               </DpfPredicate>
+               <leftOffSet>0</leftOffSet>
+               <rightOffSet>353</rightOffSet>
+               <topOffSet>0</topOffSet>
+               <bottomOffSet>233</bottomOffSet>
+            </DpfPredicateList>
+       </predSpec>
+   <MetaModel>
+       <metaLevel>0</metaLevel>
+       <name>m0</name>
+       <metaModelSpec>
+            <DpfSpecification>
+               <nodes>
+                <DpfNode>
+                   <ID>1</ID>
+                   <name>Node</name>
+                   <deepCp>0</deepCp>
+                   <d_x>599</d_x>
+                   <d_y>227.4375</d_y>
+                   <d_width>53.46875</d_width>
+                   <d_height>40.5625</d_height>
+                </DpfNode>
+               </nodes>
+               <connections>
+                <DpfConnection>
+                   <ID>1</ID>
+                   <name>Arrow</name>
+                   <fromNode>1</fromNode>
+                   <toNode>1</toNode>
+                   <deepCp>0</deepCp>
+                   <d_lines>
+                      <line>625.8359375,226.4375,625.8359375,196.4375</line>
+                      <line>625.8359375,196.4375,682.671875,247.6015625</line>
+                      <line>682.671875,247.6015625,653.671875,247.6015625</line>
+                   </d_lines>
+                   <d_text>664.25390625,222.01953125</d_text>
+                </DpfConnection>
+               </connections>
+               <predicateConstraints>
+               </predicateConstraints>
+               <leftOffSet>579</leftOffSet>
+               <rightOffSet>0</rightOffSet>
+               <topOffSet>0</topOffSet>
+               <bottomOffSet>0</bottomOffSet>
+            </DpfSpecification>
+       </metaModelSpec>
+   </MetaModel>
+   <MetaModel>
+       <metaLevel>1</metaLevel>
+       <name>m1</name>
+       <modelSpec>
+            <DpfSpecification>
+               <nodes>
+                <DpfNode>
+                   <ID>2</ID>
+                   <name>Class</name>
+                   <typing>1</typing>
+                   <deepCp>0</deepCp>
+                   <d_x>659</d_x>
+                   <d_y>162.25</d_y>
+                   <d_width>55.015625</d_width>
+                   <d_height>40.5625</d_height>
+                </DpfNode>
+                <DpfNode>
+                   <ID>3</ID>
+                   <name>DataType</name>
+                   <typing>1</typing>
+                   <deepCp>0</deepCp>
+                   <d_x>367</d_x>
+                   <d_y>162.25</d_y>
+                   <d_width>79.9375</d_width>
+                   <d_height>40.75</d_height>
+                </DpfNode>
+               </nodes>
+               <connections>
+                <DpfConnection>
+                   <ID>2</ID>
+                   <name>reference</name>
+                   <fromNode>2</fromNode>
+                   <toNode>2</toNode>
+                   <typing>1</typing>
+                   <deepCp>0</deepCp>
+                   <d_lines>
+                      <line>686.5,161.25,686.5,131.25</line>
+                      <line>686.5,131.25,744,182.4140625</line>
+                      <line>744,182.4140625,715,182.4140625</line>
+                   </d_lines>
+                   <d_text>725.25,156.83203125</d_text>
+                </DpfConnection>
+                <DpfConnection>
+                   <ID>3</ID>
+                   <name>attribute</name>
+                   <fromNode>2</fromNode>
+                   <toNode>3</toNode>
+                   <typing>1</typing>
+                   <deepCp>0</deepCp>
+                   <d_lines>
+                      <line>658,182.4140625,448.125,182.4140625</line>
+                   </d_lines>
+                   <d_text>509.703125,174.4140625</d_text>
+                </DpfConnection>
+               </connections>
+               <predicateConstraints>
+               </predicateConstraints>
+               <leftOffSet>343</leftOffSet>
+               <rightOffSet>0</rightOffSet>
+               <topOffSet>0</topOffSet>
+               <bottomOffSet>0</bottomOffSet>
+            </DpfSpecification>
+       </modelSpec>
+   </MetaModel>
+   <MetaModel>
+       <metaLevel>2</metaLevel>
+       <name>m2
+</name>
+       <modelSpec>
+            <DpfSpecification>
+               <nodes>
+               </nodes>
+               <connections>
+               </connections>
+               <predicateConstraints>
+               </predicateConstraints>
+               <leftOffSet>343</leftOffSet>
+               <rightOffSet>0</rightOffSet>
+               <topOffSet>0</topOffSet>
+               <bottomOffSet>0</bottomOffSet>
+            </DpfSpecification>
+       </modelSpec>
+   </MetaModel>
+   <MetaModel>
+       <metaLevel>3</metaLevel>
+       <name>m3</name>
+       <modelSpec>
+            <DpfSpecification>
+               <nodes>
+               </nodes>
+               <connections>
+               </connections>
+               <predicateConstraints>
+               </predicateConstraints>
+               <leftOffSet>343</leftOffSet>
+               <rightOffSet>0</rightOffSet>
+               <topOffSet>0</topOffSet>
+               <bottomOffSet>0</bottomOffSet>
+            </DpfSpecification>
+       </modelSpec>
+   </MetaModel>
+</MetaModelStack>
